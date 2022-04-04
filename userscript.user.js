@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         The Gacha Alliance r/place Script
 // @namespace    http://tampermonkey.net/
-// @version      6.9
+// @version      6.10
 // @description  The GFL/Va-11 Peppy OGs - Gacha Alliance official userscript
 // @author       soreikomori, hime, Aldo796, LeftHandedBread and every single fellow weeb
 // @match        https://hot-potato.reddit.com/embed*
@@ -14,16 +14,16 @@ if (window.top !== window.self) {
         document.getElementsByTagName("mona-lisa-embed")[0].shadowRoot.children[0].getElementsByTagName("mona-lisa-canvas")[0].shadowRoot.children[0].appendChild(
             (function () {
                 const image = document.createElement("img");
-                let undotted = "https://www.dropbox.com/s/btcpvdu9qctwayg/highlight.png?raw=1&";
-                image.src = "https://www.dropbox.com/s/jr4crnn654mjxwz/overlay.png?raw=1&";
+                let undotted = "https://github.com/GachaAlliance/Overlay/raw/main/highlight.png";
+                image.src = "https://github.com/GachaAlliance/Overlay/raw/main/overlay.png";
 
                 image.onload = () => {
                     image.style = "position: absolute;left: 0;top: 0;image-rendering: pixelated;width: 2000px;height: 2000px; transition: opacity 0.2s ease";
                 };
 
                 setInterval(() => {
-                    image.src = "https://www.dropbox.com/s/jr4crnn654mjxwz/overlay.png?raw=1&cache=" + uuidv4();
-                    undotted = "https://www.dropbox.com/s/btcpvdu9qctwayg/highlight.png?raw=1&" + uuidv4();
+                    image.src = "https://github.com/GachaAlliance/Overlay/raw/main/overlay.png?cache=" + uuidv4();
+                    undotted = "https://github.com/GachaAlliance/Overlay/raw/main/highlight.png?cache=" + uuidv4();
                 }, 60000)
 
                 // Add the image as overlay
